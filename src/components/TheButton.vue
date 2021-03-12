@@ -4,7 +4,7 @@
       class="btn"
       :class="[themes[theme], sizes[size]]"
     >
-      <slot/>
+      <slot>{{text}}</slot>
     </button>
   </router-link>
 </template>
@@ -28,6 +28,9 @@ export default {
     theme: {
       type: String,
       default: 'primary',
+    },
+    text: {
+      type: String,
     },
     size: {
       type: String,

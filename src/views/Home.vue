@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <TheButton @click.prevent="clicked">
-      Click me &rarr;
-    </TheButton>
+    <TheButton text="Click me &rarr;"/>
   </div>
 </template>
 
