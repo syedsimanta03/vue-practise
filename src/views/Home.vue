@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <TheButton text="Click me &rarr;"/>
+    <TheButton text="Click me &rarr;" title="title here"/>
   </div>
 </template>
 

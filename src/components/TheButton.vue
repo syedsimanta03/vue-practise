@@ -3,6 +3,7 @@
     <button
       class="btn"
       :class="[themes[theme], sizes[size]]"
+      :title="formatTitle"
     >
       <slot>{{text}}</slot>
     </button>
@@ -24,12 +25,22 @@ export default {
 
     }
   },
+
+  computed: {
+    formatTitle() {
+      return `? ${this.title}` 
+    }
+  },
+
   props: {
     theme: {
       type: String,
       default: 'primary',
     },
     text: {
+      type: String,
+    },
+    title: {
       type: String,
     },
     size: {
