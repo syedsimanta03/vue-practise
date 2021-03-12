@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <TheButton/>
-    <TheButton theme="danger" size="large"/>
+    <TheButton @click.prevent="clicked">
+      Click me &rarr;
+    </TheButton>
   </div>
 </template>
 
@@ -13,5 +14,6 @@ export default {
   components: {
     TheButton,
   },
+
 }
 </script>

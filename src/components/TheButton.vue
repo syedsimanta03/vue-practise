@@ -4,7 +4,7 @@
       class="btn"
       :class="[themes[theme], sizes[size]]"
     >
-      Sign in
+      <slot/>
     </button>
   </router-link>
 </template>
@@ -21,6 +21,7 @@ export default {
         normal: '',
         large: 'btn-lg',
       },
+
     }
   },
   props: {
