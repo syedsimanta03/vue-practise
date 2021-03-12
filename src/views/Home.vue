@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <TheButton/>
-    <TheButton danger/>
+    <TheButton theme="danger" size="large"/>
   </div>
 </template>
 

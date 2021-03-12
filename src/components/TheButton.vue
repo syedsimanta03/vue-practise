@@ -1,19 +1,36 @@
 <template>
   <router-link to="/about">
-  <button class="btn" :class="{'btn-primary': primary, 'btn-danger': danger}">Sign in</button>
+    <button
+      class="btn"
+      :class="[themes[theme], sizes[size]]"
+    >
+      Sign in
+    </button>
   </router-link>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      themes: {
+        primary: 'btn-primary',
+        danger: 'btn-danger',
+      },
+      sizes: {
+        normal: '',
+        large: 'btn-lg',
+      },
+    }
+  },
   props: {
-    primary: {
-      type: Boolean,
-      default: true
+    theme: {
+      type: String,
+      default: 'primary',
     },
-    danger: {
-      type: Boolean,
-      default: false
+    size: {
+      type: String,
+      default: 'normal',
     },
   },
 }
