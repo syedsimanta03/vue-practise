@@ -8,6 +8,7 @@
 
 <script>
 export default {
+/* state */
 data() {
   return {
     passwordRevealed: false
@@ -25,13 +26,13 @@ data() {
       default: 'text'
     },
   },
-
+/* shadow copy */
   computed: {
     inputType() {
       return this.passwordRevealed ? 'text' : this.type
     }
   },
-
+/* mutate shadow copy to keep state immutable */
   methods: {
     togglevisibility() {
       this.inputType = this.inputType === 'password'? 'text' : 'password'
