@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <TheButton text="Click me &rarr;" title="title here"/>
+   <AppInput name="email" type="password"/>
   </div>
 </template>
 
 <script>
-import TheButton from '../components/TheButton'
+import AppInput from '../components/AppInput'
 
 export default {
   name: 'Home',
   components: {
-    TheButton,
+    AppInput,
   },
 
 }
