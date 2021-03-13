@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-   <AppInput name="password" type="password"/>
+   <AppInput name="password" type="password" v-model="form.email"/>
   </div>
 </template>
 
@@ -11,6 +11,14 @@ export default {
   name: 'Home',
   components: {
     AppInput,
+  },
+
+  data() {
+    return {
+      form: {
+        email: ''
+      }
+    }
   },
 
 }
