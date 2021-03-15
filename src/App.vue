@@ -3,9 +3,8 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <ul>
-      <FriendContact name='Roy Bone' phone='345346' email='Roy@gmail.com'/>
-      <FriendContact name='Roy Bonex' phone='345346x' email='Roy@gmail.comx'/>
+    <ul v-for="friend in friends" :key="friend.id">
+      <FriendContact :name="friend.name" :phone='friend.phone' :email='friend.email'/>
     </ul>
   </section>
 </template>
