@@ -4,14 +4,19 @@
       <h1>My Friends</h1>
     </header>
     <ul>
-      <friend-contact></friend-contact>
-      <friend-contact></friend-contact>
+      <FriendContact name='Roy Bone' phone='345346' email='Roy@gmail.com'/>
+      <FriendContact name='Roy Bonex' phone='345346x' email='Roy@gmail.comx'/>
     </ul>
   </section>
 </template>
 
 <script>
+import FriendContact from './components/FriendContact';
+
 export default {
+components: {
+  FriendContact,
+},
   data() {
     return {
       friends: [
