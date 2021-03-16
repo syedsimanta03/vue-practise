@@ -3,7 +3,7 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <Newfriend @add-contact="addContact"/>
+    <Newfriend @add-contact="addContact" />
     <ul v-for="friend in friends" :key="friend.id">
       <FriendContact
         :name="friend.name"
@@ -12,6 +12,7 @@
         :id="friend.id"
         :isfav="friend.isfav"
         @toggle-fav="toggleFavStatus"
+        @delete="deleteContact"
       />
     </ul>
   </section>
@@ -24,7 +25,7 @@ import Newfriend from './components/Newfriend'
 export default {
   components: {
     FriendContact,
-    Newfriend
+    Newfriend,
   },
   data() {
     return {
@@ -50,7 +51,7 @@ export default {
 
   methods: {
     toggleFavStatus(friendId) {
-      const indentifiedfriend = this.friends.find(f => f.id === friendId)
+      const indentifiedfriend = this.friends.find((f) => f.id === friendId)
       indentifiedfriend.isfav = !indentifiedfriend.isfav
     },
     addContact(name, phone, email) {
@@ -59,13 +60,15 @@ export default {
         name: name,
         phone: phone,
         email: email,
-        isFavourite: false
+        isFavourite: false,
       }
       this.friends.push(newFriendContact)
-    }
+    },
 
+    deleteContact(friendId) {
+      this.friends = this.friends.filter((f) => f.id !== friendId)
+    },
   },
-
 }
 </script>
 

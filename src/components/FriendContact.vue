@@ -18,6 +18,7 @@
         {{ email }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -25,7 +26,7 @@
 export default {
   name: 'FriendContact',
   props:  ['name', 'phoneX', 'email', 'isfav', 'id'],
-  emits: ['toggle-fav'],
+  emits: ['toggle-fav', 'delete'],
  data() {
    return {
      detailsAreVisible: false
@@ -38,6 +39,7 @@ export default {
     togglefav() {
       this.$emit('toggle-fav', this.id)
     }
+    
   },
 }
 </script>
