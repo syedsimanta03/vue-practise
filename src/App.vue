@@ -2,39 +2,59 @@
   <section>
     <header>
       <h1>My Friends</h1>
+      <input v-model="message" placeholder="edit me" />
+      <p>Message is: {{ message }}</p>
     </header>
     <ul v-for="friend in friends" :key="friend.id">
-      <FriendContact :name="friend.name" :phone='friend.phone' :email='friend.email'/>
+      <FriendContact
+        :name="friend.name"
+        :phoneX="friend.phone"
+        :email="friend.email"
+        :id="friend.id"
+        :isfav="friend.isfav"
+        @toggle-fav="toggleFavStatus"
+      />
     </ul>
   </section>
 </template>
 
 <script>
-import FriendContact from './components/FriendContact';
+import FriendContact from './components/FriendContact'
 
 export default {
-components: {
-  FriendContact,
-},
+  components: {
+    FriendContact,
+  },
   data() {
     return {
+      message: '',
       friends: [
         {
-          id: "manuel",
-          name: "Manuel Lorenz",
-          phone: "0123 45678 90",
-          email: "manuel@localhost.com",
+          id: 'manuel',
+          name: 'Manuel Lorenz',
+          phone: '0123 45678 90',
+          email: 'manuel@localhost.com',
+          isfav: true,
         },
         {
-          id: "julie",
-          name: "Julie Jones",
-          phone: "0987 654421 21",
-          email: "julie@localhost.com",
+          id: 'julie',
+          name: 'Julie Jones',
+          phone: '0987 654421 21',
+          email: 'julie@localhost.com',
+          isfav: false,
         },
       ],
-    };
+    }
   },
-};
+
+  methods: {
+    toggleFavStatus(friendId) {
+      const indentifiedfriend = this.friends.find(f => f.id === friendId)
+      indentifiedfriend.isfav = !indentifiedfriend.isfav
+    }
+  },
+
+}
 </script>
 
 <style>
@@ -42,7 +62,7 @@ components: {
   box-sizing: border-box;
 }
 html {
-  font-family: "Jost", sans-serif;
+  font-family: 'Jost', sans-serif;
 }
 body {
   margin: 0;
