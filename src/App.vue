@@ -1,37 +1,40 @@
 <template>
   <div>
     <the-header></the-header>
-    <!-- <TheHeader /> -->
-    <badge-list></badge-list>
-    <user-info
-      :full-name="activeUser.name"
-      :info-text="activeUser.description"
-      :role="activeUser.role"
-    ></user-info>
+    <button @click="setSelectCom('ActiveGoals')">Active Goals</button>
+    <button @click="setSelectCom('ManageGoals')">Manage Goals</button>
+    <component :is="selectCom"></component>
   </div>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue';
-import BadgeList from './components/BadgeList.vue';
-import UserInfo from './components/UserInfo.vue';
+import TheHeader from './components/TheHeader.vue'
+import ActiveGoals from './components/ActiveGoals.vue'
+import ManageGoals from './components/ManageGoals.vue'
 
 export default {
   components: {
     TheHeader,
-    BadgeList,
-    UserInfo
+    ActiveGoals,
+    ManageGoals,
   },
   data() {
     return {
+      selectCom: 'ActiveGoals',
       activeUser: {
         name: 'Maximilian Schwarzmüller',
         description: 'Site owner and admin',
         role: 'admin',
       },
-    };
+    }
   },
-};
+
+  methods: {
+    setSelectCom(cmp) {
+      this.selectCom = cmp
+    },
+  },
+}
 </script>
 
 <style>
