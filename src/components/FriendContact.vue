@@ -25,6 +25,7 @@
 export default {
   name: 'FriendContact',
   props:  ['name', 'phoneX', 'email', 'isfav', 'id'],
+  emits: ['toggle-fav'],
  data() {
    return {
      detailsAreVisible: false
