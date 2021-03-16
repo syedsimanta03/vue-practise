@@ -3,7 +3,9 @@
     <the-header></the-header>
     <button @click="setSelectCom('ActiveGoals')">Active Goals</button>
     <button @click="setSelectCom('ManageGoals')">Manage Goals</button>
+    <keep-alive>
     <component :is="selectCom"></component>
+    </keep-alive>
   </div>
 </template>
 
