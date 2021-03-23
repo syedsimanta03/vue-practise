@@ -1,50 +1,35 @@
 <template>
-  <div>
-    <the-header></the-header>
-    <button @click="setSelectCom('ActiveGoals')">Active Goals</button>
-    <button @click="setSelectCom('ManageGoals')">Manage Goals</button>
-    <keep-alive>
-    <component :is="selectCom"></component>
-    </keep-alive>
-  </div>
+  <the-header title="The header"></the-header>
+  <the-resources></the-resources>
 </template>
 
 <script>
-import TheHeader from './components/TheHeader.vue'
-import ActiveGoals from './components/ActiveGoals.vue'
-import ManageGoals from './components/ManageGoals.vue'
-
+import TheResources from './components/Resource/TheResources'
+import TheHeader from './components/layouts/TheHeader'
 export default {
   components: {
     TheHeader,
-    ActiveGoals,
-    ManageGoals,
-  },
-  data() {
-    return {
-      selectCom: 'ActiveGoals',
-      activeUser: {
-        name: 'Maximilian Schwarzmüller',
-        description: 'Site owner and admin',
-        role: 'admin',
-      },
-    }
+    TheResources,
   },
 
-  methods: {
-    setSelectCom(cmp) {
-      this.selectCom = cmp
-    },
-  },
 }
 </script>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
   margin: 0;
+}
+ul {
+list-style: none;
 }
 </style>
