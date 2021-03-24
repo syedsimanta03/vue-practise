@@ -1,35 +1,28 @@
 <template>
-  <the-header title="The header"></the-header>
-  <the-resources></the-resources>
+  <the-form></the-form>
 </template>
 
 <script>
-import TheResources from './components/Resource/TheResources'
-import TheHeader from './components/layouts/TheHeader'
+import TheForm from './components/TheForm.vue';
+
 export default {
   components: {
-    TheHeader,
-    TheResources,
-  },
-
+    TheForm
+  }  
 }
 </script>
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
 * {
   box-sizing: border-box;
 }
 
 html {
-  font-family: 'Roboto', sans-serif;
+  font-family: sans-serif;
 }
 
 body {
   margin: 0;
-}
-ul {
-list-style: none;
+  background-color: #292929;
 }
 </style>
