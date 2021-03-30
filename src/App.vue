@@ -1,28 +1,37 @@
 <template>
-  <the-form></the-form>
+  <base-container title="Vuex">
+    <h3>{{counter}}</h3>
+    <button @click="addOne">Add 1</button>
+  </base-container>
 </template>
 
 <script>
-import TheForm from './components/TheForm.vue';
-
+import BaseContainer from './components/BaseContainer';
 export default {
   components: {
-    TheForm
-  }  
-}
+    BaseContainer,
+  },
+  computed: {
+    counter() {
+      return this.$store.state.counter
+    }
+  },
+  methods: {
+    addOne() {
+      this.$store.state.counter++
+    }
+  }
+};
 </script>
 
 <style>
 * {
   box-sizing: border-box;
 }
-
 html {
   font-family: sans-serif;
 }
-
 body {
   margin: 0;
-  background-color: #292929;
 }
 </style>
