@@ -1,17 +1,20 @@
 <template>
   <base-container title="Vuex">
     <the-counter></the-counter>
-    <button @click="addOne">Add 1</button>
+    <fav-counter></fav-counter>
+    <button @click="addOne">Add 10</button>
   </base-container>
 </template>
 
 <script>
 import TheCounter from './components/TheCounter.vue';
 import BaseContainer from './components/BaseContainer';
+import FavCounter from './components/FavCounter.vue';
 export default {
   components: {
     BaseContainer,
-    TheCounter
+    TheCounter,
+    FavCounter
   },
 
   methods: {
