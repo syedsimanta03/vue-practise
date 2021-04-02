@@ -1,12 +1,22 @@
 import { createStore } from 'vuex'
+import rootMutations from './mutations.js'
+import rootActions from './actions.js'
+import rootGetters from './getters.js'
 
-export default createStore({
-  state: {
+import counterModule from './counter/index.js'
+
+const store = createStore({
+  state() {
+    return {
+      isLoggedIn: false,
+    }
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
-  }
+
+  mutations: rootMutations,
+  actions: rootActions,
+  getters: rootGetters,
+  /* modules always should be object */
+  modules: { counterModule }
 })
+
+export default store

@@ -1,35 +1,45 @@
 <template>
-  <base-container title="Vuex">
+  <base-container title="Vuex" v-if="isAuth">
     <the-counter></the-counter>
     <fav-counter></fav-counter>
-    <button @click="increment">Add 10</button>
-    <button @click="increase({ value: 12 })">Add 12</button>
+        <button @click="addOne">Add 10</button>
   </base-container>
+    <base-container title="Auth">
+      <user-auth></user-auth>
+    </base-container>
 </template>
 
 <script>
 import TheCounter from './components/TheCounter.vue'
 import BaseContainer from './components/BaseContainer'
 import FavCounter from './components/FavCounter.vue'
-import { mapActions } from 'vuex'
+import UserAuth from './components/UserAuth.vue'
+
 export default {
   components: {
     BaseContainer,
     TheCounter,
     FavCounter,
+    UserAuth,
   },
 
   methods: {
-    /*     addOne() {
-      //this.$store.commit('increase', {value: 10})
-      this.$store.dispatch({
+        addOne() {
+      this.$store.dispatch('increase', {value: 10})
+      /* this.$store.dispatch({
         type: 'increase',
         value: 10
-      })
-    } */
+      }) */
+    },
 
-    ...mapActions(['increment', 'increase']),
+
   },
+  
+    computed: {
+      isAuth() {
+        return this.$store.getters.userIsAuthenticated 
+      }
+    },
 }
 </script>
 
