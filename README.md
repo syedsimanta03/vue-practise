@@ -20,5 +20,5 @@ npm run build
 npm run lint
 ```
 =============================
-check commits 
+check brances & commits 
 =============================
