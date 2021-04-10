@@ -10,7 +10,7 @@
     <form @submit.prevent="addExpenses">
       <div>
         <label for="amount">Amount</label>
-        <input type="number" id="amount" v-model="enteredExpenses" />
+        <input type="number" id="amount" v-model.number="enteredExpenses" />
       </div>
       <button>Add Expenses</button>
     </form>
@@ -36,7 +36,7 @@ export default {
     const addExpenses = () => {
       state.currentExpenses = state.currentExpenses + state.enteredExpenses
     }
-
+// arrow fun kaz kore na
     watch(remainingFunds, function(newValue) {
       if (newValue < 0) {
         alert('You are broke')
