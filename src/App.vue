@@ -1,29 +1,56 @@
 <template>
-  <the-header></the-header>
-  <router-view></router-view>
+  <header>Expenses tracker</header>
+  <section>
+    <div>Available funds: {{ availableFunds }}</div>
+    <div>Total Expenses: {{ currentExpenses }}</div>
+    <hr />
+    <div>Funds left: {{ remainingFunds }}</div>
+  </section>
+  <section>
+    <form @submit.prevent="addExpenses">
+      <div>
+        <label for="amount">Amount</label>
+        <input type="number" id="amount" v-model="enteredExpenses" />
+      </div>
+      <button>Add Expenses</button>
+    </form>
+  </section>
 </template>
 
 <script>
-import TheHeader from './components/nav/TheHeader.vue';
+import { reactive, toRefs, computed, watch } from 'vue'
 
 export default {
-  components: {
-    TheHeader
+  setup() {
+    const availableFunds = 100
+
+    const state = reactive({
+      currentExpenses: 0,
+      enteredExpenses: 0,
+    })
+
+    const remainingFunds = computed(() => {
+      return availableFunds - state.currentExpenses
+    })
+
+    const addExpenses = () => {
+      state.currentExpenses = state.currentExpenses + state.enteredExpenses
+    }
+
+    watch(remainingFunds, function(newValue) {
+      if (newValue < 0) {
+        alert('You are broke')
+      }
+    })
+
+    return {
+      availableFunds,
+      ...toRefs(state),
+      addExpenses,
+      remainingFunds,
+    }
   },
-  
-};
+}
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-family: sans-serif;
-}
-
-body {
-  margin: 0;
-}
-</style>
+<style lang="scss" scoped></style>
